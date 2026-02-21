@@ -39,7 +39,7 @@ function loopThroughQuotes() {
 } */
 
 
-
+/*
 getRandomImage();
 
 async function getRandomImage() {
@@ -55,5 +55,38 @@ async function getRandomImage() {
     } catch (error) {
         console.error(error);
     }
+} */
+
+async function getRandomImage() {
+    const endpoint = `https://api.unsplash.com/photos/random/?client_id=${process.env.CLIENT_ID}`;
+    try {
+        const response = await fetch(endpoint);
+        const returnedData = await response.json();
+        const receivedPhotoUrl = returnedData.urls.regular;
+
+        return receivedPhotoUrl;
+    } catch (error) {
+        console.error(error);
+    }
 }
 
+app.use("/api/v1/getRandomImage", async (request, response) => {
+    response.status(200).json({
+        status: 200,
+        data: await getRandomImage(),
+    });
+});
+
+async function getRandomImage() {
+    const endpoint = "http://localhost:8080/api/v1/getRandomImage";
+    try {
+        const response = await fetch(endpoint);
+        const returnedData = await response.json();
+        const receivedPhotoUrl = returnedData.data;
+
+        const imgDiv = document.querySelector(".background-img");
+        imgDiv.style.backgroundImage = `url(${receivedPhotoUrl})`;
+    } catch (error) {
+        console.error(error);
+    }
+}
