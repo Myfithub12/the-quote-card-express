@@ -1,5 +1,5 @@
 {
-  "name": "the-quote-card-express",
+  "name": "quotecardexpress",
   "version": "1.0.0",
   "description": "",
   "main": "server.js",
@@ -7,23 +7,15 @@
     "dev": "nodemon server.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/Myfithub12/the-quote-card-express.git"
-  },
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/Myfithub12/the-quote-card-express/issues"
-  },
-  "homepage": "https://github.com/Myfithub12/the-quote-card-express#readme",
   "dependencies": {
     "cors": "^2.8.6",
     "dotenv": "^17.3.1",
     "express": "^5.2.1"
   },
   "devDependencies": {
-    "nodemon": "^3.1.11"
+    "nodemon": "^3.1.14"
   }
 }
